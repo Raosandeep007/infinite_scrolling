@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Scrolling</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  const getData = async () => {
+    const url = `https://shadow-glittery-bosworth.glitch.me/users`;
+    try {
+      let res = await fetch(url);
+      let Users = await res.json();
+      displayUsers(Users);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+  getData();
+
+  function displayUsers(Users) {
+    Users.map((user) => {
+      let card = document.createElement("div");
+      card.id = "card";
+
+      let first_name = document.createElement("h2");
+      first_name.innerText = `${user.first_name}`;
+      first_name.className = "first_name";
+      let last_name = document.createElement("h2");
+      last_name.innerText = `${user.last_name}`;
+      last_name.className = "last_name";
+      let userid = document.createElement("h2");
+      userid.innerText = `${user.id}`;
+      userid.className = "userid";
+
+      card.append(first_name, last_name, userid);
+      document.getElementById("container").append(card);
+    });
+  }
+</script>

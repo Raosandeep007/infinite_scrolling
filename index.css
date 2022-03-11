@@ -1,0 +1,18 @@
+#container {
+  width: 400px;
+  border: 20px solid rgb(151, 56, 56);
+  border-radius: 15px;
+  padding-left: 10px;
+  margin: auto;
+  height: 92vh;
+  overflow-y: scroll;
+}
+#container::-webkit-scrollbar {
+  display: none;
+}
+
+#card {
+  display: flex;
+  column-gap: 2%;
+  justify-content: center;
+}

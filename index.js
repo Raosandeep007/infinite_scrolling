@@ -18,7 +18,7 @@ getData(page);
 const showData = () => {
   setTimeout(() => {
     page++;
-    console.log("page:", page);
+    // console.log("page:", page);
     getData(page);
     // let animation = document.getElementById("animationdiv");
     // animation.classList.add("displaynone");
